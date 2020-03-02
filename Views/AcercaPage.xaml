@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExplorAppTeo.Views.AcercaPage"
+             xmlns:vm="clr-namespace:ExplorAppTeo.ViewModels"
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:AcercaViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="Accent">#E90031</Color>
+            <Color x:Key="DarkTextColor">#000000</Color>
+            <Color x:Key="Background">#FFFFFF</Color>
+            <Color x:Key="ExploraRed">#E90031</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <ScrollView>
+        <Grid BackgroundColor="{StaticResource Background}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,20,0,15" VerticalOptions="FillAndExpand">
+                    <Image Source="logo_explorapp.png" VerticalOptions="Center" HeightRequest="64" />
+                </ContentView>
+            </StackLayout>
+            
+            <ScrollView Grid.Row="1">
+                <StackLayout Orientation="Vertical" Padding="16,0,16,0" Spacing="10">
+                    <Label FontSize="Small" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{StaticResource ExploraRed}">
+                        <Label.Text>PRODUCCIÓN EJECUTIVA</Label.Text>
+                    </Label>
+                        <Label FontSize="Small" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{StaticResource DarkTextColor}" Margin="0,-8,0,0">
+                        <Label.Text>EDUARDO SOTO</Label.Text>
+                    </Label>
+                        <Label FontSize="Small" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{StaticResource ExploraRed}">
+                        <Label.Text>PRODUCCIÓN</Label.Text>
+                    </Label>
+                        <Label FontSize="Small" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{StaticResource DarkTextColor}" Margin="0,-8,0,0">
+                        <Label.Text>ERICK CRUZ</Label.Text>
+                    </Label>
+                        <Label FontSize="Small" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{StaticResource DarkTextColor}" Margin="0,-8,0,0">
+                        <Label.Text>JORGE RIVAS</Label.Text>
+                    </Label>
+                        <Label FontSize="Small" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{StaticResource DarkTextColor}" Margin="0,-8,0,0">
+                        <Label.Text>RODRIGO CONTRERAS</Label.Text>
+                    </Label>
+                </StackLayout>
+            </ScrollView>
+            <ScrollView Grid.Row="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <ScrollView Grid.Column="0">
+                        <StackLayout Orientation="Vertical" Padding="16,20,16,0" Spacing="10">
+                                <Label FontSize="Small" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{StaticResource ExploraRed}">
+                                <Label.Text>DISEÑO GRÁFICO</Label.Text>
+                            </Label>
+                                <Label FontSize="Small" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{StaticResource DarkTextColor}" Margin="0,-8,0,0">
+                                <Label.Text>RODRIGO GÓMEZ</Label.Text>
+                            </Label>
+                                <Label FontSize="Small" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{StaticResource ExploraRed}" Margin="0,13,0,0">
+                                <Label.Text>GUIÓN</Label.Text>
+                            </Label>
+                                <Label FontSize="Small" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{StaticResource DarkTextColor}" Margin="0,-8,0,0">
+                                <Label.Text>EDUARDO SOTO</Label.Text>
+                            </Label>
+                                <Label FontSize="Small" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{StaticResource ExploraRed}" Margin="0,13,0,0">
+                                <Label.Text>COLABORADORES</Label.Text>
+                            </Label>
+                                <Label FontSize="Small" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{StaticResource DarkTextColor}" Margin="0,-8,0,0">
+                                <Label.Text>BRENDA EZQUIVEL</Label.Text>
+                            </Label>
+                                <Label FontSize="Small" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{StaticResource DarkTextColor}" Margin="0,-8,0,0">
+                                <Label.Text>ANDRES FERRAT</Label.Text>
+                            </Label>
+                        </StackLayout>
+                    </ScrollView>
+                    <ScrollView Grid.Column="1">
+                        <StackLayout Orientation="Vertical" Padding="16,20,16,0" Spacing="10">
+                                <Label FontSize="Small" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{StaticResource ExploraRed}">
+                                <Label.Text>PROGRAMACIÓN</Label.Text>
+                            </Label>
+                                <Label FontSize="Small" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{StaticResource DarkTextColor}" Margin="0,-8,0,0">
+                                <Label.Text>EMILIO MARTINEZ</Label.Text>
+                            </Label>
+                                <Label FontSize="Small" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{StaticResource ExploraRed}" Margin="0,13,0,0">
+                                <Label.Text>AUDIO</Label.Text>
+                            </Label>
+                                <Label FontSize="Small" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{StaticResource DarkTextColor}" Margin="0,-8,0,0">
+                                <Label.Text>EDUARDO GARCÍA</Label.Text>
+                            </Label>
+                                <Label FontSize="Small" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{StaticResource ExploraRed}" Margin="0,13,0,0">
+                                <Label.Text>LOCUCIÓN</Label.Text>
+                            </Label>
+                                <Label FontSize="Small" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{StaticResource DarkTextColor}" Margin="0,-8,0,0">
+                                <Label.Text>BRENDA EZQUIVEL</Label.Text>
+                            </Label>
+                        </StackLayout>
+                    </ScrollView>
+                </Grid>
+            </ScrollView>
+            <ScrollView Grid.Row="3">
+                
+            </ScrollView>
+        </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExplorAppTeo.Views.InicioPage"
+             xmlns:vm="clr-namespace:ExplorAppTeo.ViewModels"
+             Title="{Binding Title}">
+    
+    <ContentPage.BindingContext>
+        <vm:InicioViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Image Source="logo_inicio.jpg" VerticalOptions="Start" MinimumWidthRequest="374" HorizontalOptions="FillAndExpand" Margin="5" />
+                <Label HorizontalOptions="FillAndExpand"  
+                       LineBreakMode="WordWrap"
+                       FontSize="Small" 
+                       Margin="15,0">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Teotihuacán " 
+                                  TextColor="Black" FontAttributes="Bold"/>
+                            <Span Text="significa lugar en que fueron hechos los dioses o ciudad de los dioses, fue uno de los centros urbanos más grandes del mundo antiguo, llegando a concentrar hasta 100,000 habitantes. Fue sede del poder de una de las ciudades más influyentes en los ámbitos político, económico, comercial, religioso y cultural, que marcaron permanentemente los pueblos de la época prehispánica en Mesoamérica." 
+                                  TextColor="Black"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label HorizontalOptions="FillAndExpand"  
+                       LineBreakMode="WordWrap"
+                       FontSize="Small" 
+                       Margin="15,0">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="La zona arqueológica tiene una extensión de 264 hectáreas en donde podrás apreciar complejos monumentales como las " 
+                                  TextColor="Black"/>
+                            <Span Text="Pirámides del Sol y la Luna" 
+                                  TextColor="Black" FontAttributes="Bold"/>
+                            <Span Text=", la " 
+                                  TextColor="Black"/>
+                            <Span Text="Ciudadela" 
+                                  TextColor="Black" FontAttributes="Bold"/>
+                            <Span Text=", el " 
+                                  TextColor="Black"/>
+                            <Span Text="Templo de la Serpiente Emplumada" 
+                                  TextColor="Black" FontAttributes="Bold"/>
+                            <Span Text=", o la " 
+                                  TextColor="Black"/>
+                            <Span Text="Calzada de los Muertos" 
+                                  TextColor="Black" FontAttributes="Bold"/>
+                            <Span Text="; cuyas descripciones encontrarás dentro de la App." 
+                                  TextColor="Black"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Text="Descúbrela ingresando por cualquier de sus 5 puertas, distribuidas e interconectadas por un camino periférico."
+                       HorizontalOptions="FillAndExpand" 
+                       LineBreakMode="WordWrap"
+                       FontSize="Small" 
+                       TextColor="Black" Margin="15,0"/>
+                <Label Text="Fuente: INAH 2019"
+                       HorizontalOptions="FillAndExpand" 
+                       LineBreakMode="WordWrap"
+                       FontSize="Micro" 
+                       TextColor="Black" Margin="15,0,15,20" HorizontalTextAlignment="End"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

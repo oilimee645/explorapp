@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExplorAppTeo.Views.RestaurantesDetailPage"
+             xmlns:vm="clr-namespace:ExplorAppTeo.ViewModels"
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:RestaurantesDetailViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="ExploraRed">#E90031</Color>
+            <Color x:Key="ExploraGray">#EDEDED</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout BackgroundColor="{StaticResource ExploraGray}">
+            <StackLayout BackgroundColor="White" Margin="20" Padding="15" Spacing="6">
+                <Image Source="{Binding Lugar.Imagen1}" HeightRequest="220" HorizontalOptions="Center"/>
+                <Label Text="{Binding Lugar.Nombre}" 
+                       LineBreakMode="WordWrap" 
+                       FontSize="Large" 
+                       TextColor="{StaticResource ExploraRed}" FontAttributes="Bold"/>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{Binding Lugar.SitioWeb}"
+                                      TextColor="Blue"
+                                      TextDecorations="Underline">
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding WebCommand}"
+                                                              CommandParameter="{Binding Lugar.SitioWeb}"/>
+                                    </Span.GestureRecognizers>
+                                </Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                
+                <Label Text="{Binding Lugar.Descrip_Larga}" 
+                       LineBreakMode="WordWrap"
+                       FontSize="Small" 
+                       TextColor="Black"/>
+                <Grid RowSpacing="12" Padding="0,10,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Row="0" Grid.Column="0" Source="icono_direccion.png" HeightRequest="15" VerticalOptions="StartAndExpand"/>
+                    <Label Grid.Row="0" Grid.Column="1"
+                       Text="{Binding Lugar.Direccion}" 
+                       LineBreakMode="WordWrap"
+                       FontSize="Small" 
+                       TextColor="Black"/>
+                    <Image Grid.Row="1" Grid.Column="0" Source="icono_horario.png" HeightRequest="15" VerticalOptions="Center"/>
+                    <Label Grid.Row="1" Grid.Column="1"
+                        Text="{Binding Lugar.Horario}" 
+                       LineBreakMode="WordWrap"
+                       FontSize="Small" 
+                       TextColor="Black"/>
+                    <Image Grid.Row="2" Grid.Column="0" Source="icono_telefono.png" HeightRequest="15" VerticalOptions="Center"/>
+                    <Label Grid.Row="2" Grid.Column="1"
+                        Text="{Binding Lugar.Telefono}" 
+                       LineBreakMode="WordWrap"
+                       FontSize="Small" 
+                       TextColor="Black"/>
+                    <Image Grid.Row="3" Grid.Column="0" Source="icono_ojo.png" HeightRequest="15" VerticalOptions="Center"/>
+                    <Label Grid.Row="3" Grid.Column="1"
+                       Text="0" x:Name="lblCount"
+                       LineBreakMode="WordWrap"
+                       FontSize="Small" 
+                       TextColor="Black"/>
+                    </Grid>
+            </StackLayout>
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>  
+</ContentPage>

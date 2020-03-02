@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:custom="clr-namespace:ExplorAppTeo.CustomControls;assembly=ExplorAppTeo"
+             x:Class="ExplorAppTeo.Views.GuiaPage"
+             xmlns:vm="clr-namespace:ExplorAppTeo.ViewModels"
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:GuiaViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="ExploraRed">#E90031</Color>
+            <Color x:Key="ExploraGray">#EDEDED</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <AbsoluteLayout Grid.Row="0" IsVisible="True" x:Name="GuiaLayout">
+                <Image x:Name="Ruta" Source="Ruta1.png" VerticalOptions="CenterAndExpand" WidthRequest="1024" HeightRequest="646"/>
+            </AbsoluteLayout>
+            <ScrollView Grid.Row="0" IsVisible="False" x:Name="AudiosScrollView">
+                <ListView x:Name="AudiosListView"
+                          HasUnevenRows="True"
+                          BackgroundColor="{StaticResource ExploraGray}"
+                          SeparatorColor="Black"
+                          ItemSelected="AudiosListView_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <custom:CustomViewCell SelectedItemBackgroundColor="{StaticResource ExploraRed}">
+                                <ViewCell.View Height="100">
+                                    <Grid Padding="10">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout Orientation="Horizontal" Grid.Column="0" Padding="10,0,0,0" VerticalOptions="Center">
+                                            <Label Text="{Binding Title}" FontSize="Small" TextColor="Black"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" Grid.Column="1" Padding="0,0,5,0" VerticalOptions="Center" HorizontalOptions="End">
+                                            <Label Text="{Binding Duration}" FontSize="Small" TextColor="Black"/>
+                                        </StackLayout>
+                                    </Grid>
+                                </ViewCell.View>
+                            </custom:CustomViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+            <AbsoluteLayout Grid.Row="0" IsVisible="False" x:Name="MapLayout" >
+                <custom:PanContainer>
+                    <Image Source="mapa.png" WidthRequest="1024" HeightRequest="646"/>
+                </custom:PanContainer>
+            </AbsoluteLayout>
+            <Grid Grid.Row="1" BackgroundColor="White" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <StackLayout Grid.Row="0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Button Image="icono_rewind.png" HeightRequest="46" Margin="0,0,0,0"
+                            BackgroundColor="White"
+                            Text=" "
+                            TextColor="White"
+                            ContentLayout="Top, 1"
+                            Clicked="ButtonRwd_Clicked" HorizontalOptions="Center"/>
+                    <Button x:Name="PlayButton"
+                            Image="icono_play.png" HeightRequest="46" Margin="0,0,0,0"
+                            BackgroundColor="White"
+                            Text=" "
+                            TextColor="White"
+                            ContentLayout="Top, 1"
+                            Clicked="ButtonPlay_Clicked" HorizontalOptions="Center"/>
+                    <Button Image="icono_forward.png" HeightRequest="46" Margin="0,0,0,0"
+                            BackgroundColor="White"
+                            Text=" "
+                            TextColor="White"
+                            ContentLayout="Top, 1"
+                            Clicked="ButtonFwd_Clicked" HorizontalOptions="Center"/>
+                </StackLayout>
+
+                <Slider Grid.Row="1" x:Name="AudioSlider" Maximum="100" Minimum="0" 
+                        HorizontalOptions="FillAndExpand"
+                        MinimumTrackColor="Red" MaximumTrackColor="Red" IsEnabled="False"/>
+                
+                <Label Grid.Row="2" x:Name="AudioLabel" Text="Selecciona un track" FontSize="Small" 
+                       TextColor="Black" HorizontalOptions="Center" FontAttributes="Bold"/>
+            </Grid>
+            <RelativeLayout Grid.Row="2" HeightRequest="95"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="EndAndExpand"
+                            BackgroundColor="{StaticResource ExploraRed}">
+                <Button Margin="5"
+                        BackgroundColor="{StaticResource ExploraRed}"
+                        Text="Guía"
+                        TextColor="White"
+                        ContentLayout="Top, 5"
+                        Image="icono_guia.png"
+                        Scale="1"
+                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=.0000,Constant=0}"
+                        RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=.25,Constant=0}"
+                        FontSize="Micro" FontAttributes="Bold"
+                        Clicked="Guia_Clicked"/>
+                <Button Margin="5"
+                        BackgroundColor="{StaticResource ExploraRed}"
+                        Text="Track"
+                        TextColor="White"
+                        ContentLayout="Top, 5"
+                        Image="icono_tracks.png"
+                        Scale="1"
+                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=.25,Constant=0}"
+                        RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=.25,Constant=0}"
+                        FontSize="Micro" FontAttributes="Bold"
+                        Clicked="Track_Clicked"/>
+                <Button Margin="5"
+                        BackgroundColor="{StaticResource ExploraRed}"
+                        Text="Mapa"
+                        TextColor="White"
+                        ContentLayout="Top, 5"
+                        Image="icono_mapa.png"
+                        Scale="1"
+                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=.50,Constant=0}"
+                        RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=.25,Constant=0}"
+                        FontSize="Micro" FontAttributes="Bold"
+                        Clicked="Map_Clicked"/>
+                <Button Margin="5"
+                        BackgroundColor="{StaticResource ExploraRed}"
+                        Text="Cámara"
+                        TextColor="White"
+                        ContentLayout="Top, 5"
+                        Image="icono_camara.png"
+                        Scale="1"
+                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=.75,Constant=0}"
+                        RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=.25,Constant=0}" 
+                        FontSize="Micro" FontAttributes="Bold"
+                        Clicked="Camera_Clicked"/>
+            </RelativeLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:custom="clr-namespace:ExplorAppTeo.CustomControls;assembly=ExplorAppTeo"
+             x:Class="ExplorAppTeo.Views.EntretenimientoPage"
+             xmlns:vm="clr-namespace:ExplorAppTeo.ViewModels"
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:EntretenimientoViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="ExploraRed">#E90031</Color>
+            <Color x:Key="ExploraGray">#EDEDED</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="{StaticResource ExploraGray}">
+            <ListView x:Name="LugaresListView"
+                      Margin="20"
+                      VerticalOptions="FillAndExpand"
+                      HasUnevenRows="true"
+                      ItemSelected="OnListItemSelected"
+                      BackgroundColor="{StaticResource ExploraGray}" SeparatorColor="{StaticResource ExploraGray}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <custom:CustomViewCell SelectedItemBackgroundColor="{StaticResource ExploraGray}">
+                            <ViewCell.View>
+                                <StackLayout Orientation="Horizontal" Padding="10" Margin="0,0,0,10" BackgroundColor="White">
+                                    <Image Source="{Binding Icono}" HeightRequest="100" HorizontalOptions="Center"/>
+                                    <StackLayout Padding="10" Orientation="Vertical">
+                                        <Label Text="{Binding Nombre}" 
+                                               LineBreakMode="WordWrap" 
+                                               FontSize="Large" 
+                                               TextColor="{StaticResource ExploraRed}" FontAttributes="Bold"/>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Image Source="{Binding Estrella1}" HeightRequest="18"/>
+                                            <Image Source="{Binding Estrella2}" HeightRequest="18"/>
+                                            <Image Source="{Binding Estrella3}" HeightRequest="18"/>
+                                            <Image Source="{Binding Estrella4}" HeightRequest="18"/>
+                                            <Image Source="{Binding Estrella5}" HeightRequest="18"/>
+                                        </StackLayout>
+                                        <Label Text="{Binding Descrip_Corta}" 
+                                               LineBreakMode="WordWrap"
+                                               FontSize="Small" 
+                                               TextColor="Black"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </custom:CustomViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
